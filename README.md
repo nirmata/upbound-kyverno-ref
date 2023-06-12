@@ -46,7 +46,7 @@ Verify that the policies have been successfully installed and ready. All the sam
 
 ```console
  kubectl get cpol
-```console
+```
 
 ### Verify Policies
 
