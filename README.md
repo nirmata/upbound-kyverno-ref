@@ -34,6 +34,17 @@ Verify that Kyverno pods are running
  kubectl get pods -n kyverno
 ```
 
+Note: In case the kyverno-admission-controller pod does not enter the running state and is constantly restarting, it is likely that it does not have sufficient memory. This is typically due to large number of custom resource definitions in the cluster. You can edit the kyverno-admission-controller deployment and increase the default memory limit to 1Gi. Once the change has been made, the pod should restart successfully.
+
+```console
+        resources:
+          limits:
+            memory: 1Gi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+```
+
 ### Install Kyverno Policies
 
 Clone this repository and install the policies from the 'policies' directory.
